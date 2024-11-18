@@ -1,0 +1,26 @@
+{
+  "name": "vite-plugin-mdx",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --project tsconfig.app.json",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "1.5.9",
+    "@mdx-js/react": "^3.1.0",
+    "@rollup/pluginutils": "^5.1.3",
+    "vue": "^3.5.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@vitejs/plugin-react-refresh": "^1.3.6",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vitejs/plugin-vue-jsx": "^4.1.0",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10",
+    "vue-tsc": "^2.1.8"
+  }
+}
