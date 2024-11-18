@@ -4,7 +4,7 @@ import { createFilter, FilterPattern } from '@rollup/pluginutils'
 
 // 定义渲染器代码片段
 const vue3DefaultRenderer = `
-import {mdx} from 'vite-mdx/vue3'
+import {mdx} from '@shepardliu/vite-plugin-mdx'
 `
 
 // 定义jsx pragma代码片段
