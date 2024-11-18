@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "ESNext",
     "useDefineForClassFields": true,
     "moduleResolution": "node",
     "strict": false,
