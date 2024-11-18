@@ -1,5 +1,58 @@
-# Vue 3 + TypeScript + Vite
+# Vite Plugin MDX
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Getting Started
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+1. Install:
+   ```
+   npm install @shepardliu/vite-plugin-mdx -D
+   ```
+   or
+   ```
+   yarn add @shepardliu/vite-plugin-mdx -D
+   ```
+
+
+2. Add the plugin to your `vite.config.js`.
+
+   ```js
+   // vite.config.js
+
+   import mdx from '@shepardliu/vite-plugin-mdx'
+
+   const options = {
+       framework: 'react' // react or vue3 
+   }
+ 
+   export default {
+     plugins: [mdx(options)]
+   }
+   ```
+
+3. You can now write `.mdx` files.
+
+   ```mdx-js
+   // hello.mdx
+   
+   # Hello MDX & Vite
+
+   This is a plugin of MDX for vite
+   ```
+   
+   ```javascript
+   // App.jsx
+   
+   import React from 'react'
+
+   import Hello from './hello.mdx'
+
+   function App() {
+     return (
+       <div className="App">
+         <Hello/>
+       </div>
+     )
+   }
+
+   export default App
+
+   ```
