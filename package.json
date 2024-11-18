@@ -1,6 +1,6 @@
 {
   "name": "@shepardliu/vite-plugin-mdx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Vite plugin for MDX",
   "repository": "https://github.com/liuyunhe/vite-plugin-mdx",
   "files": [
