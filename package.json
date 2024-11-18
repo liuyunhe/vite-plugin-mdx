@@ -1,12 +1,23 @@
 {
-  "name": "vite-plugin-mdx",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@shepardliu/vite-plugin-mdx",
+  "version": "0.0.1",
+  "description": "A Vite plugin for MDX",
+  "repository": "https://github.com/liuyunhe/vite-plugin-mdx",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "author": "Shepard Liu <shepardliu@foxmail.com> (https://github.com/shepardliu)",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc --project tsconfig.app.json",
-    "preview": "vite preview"
+    "publishOnly": "npm publish --access public"
   },
   "dependencies": {
     "@mdx-js/mdx": "1.5.9",
