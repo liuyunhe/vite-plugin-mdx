@@ -1,10 +1,15 @@
 import { Plugin } from 'vite'
 import { createCompiler } from '@mdx-js/mdx'
-import { createFilter, FilterPattern } from '@rollup/pluginutils'
+import { createFilter, FilterPattern } from 'vite'
 
-// 定义渲染器代码片段
+/**定义渲染器代码片段 
+ * 
+ * 开发时使用本地`vite-mdx/vue3`
+ * 
+ * 发布时使用`@shepardliu/vite-plugin-mdx`
+*/
 const vue3DefaultRenderer = `
-import {mdx} from '@shepardliu/vite-plugin-mdx'
+import {mdx} from 'vite-mdx/vue3'
 `
 
 // 定义jsx pragma代码片段
