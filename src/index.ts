@@ -1,7 +1,9 @@
 import viteMdx, { Framework } from "./vite-mdx";
 
+const mdxPlugin = viteMdx
+
 export * from './vue3'
 
-export { Framework , viteMdx };
+export { Framework, mdxPlugin }
 
 export default viteMdx;
