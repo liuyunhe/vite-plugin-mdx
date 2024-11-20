@@ -3,20 +3,31 @@
   "version": "0.0.5",
   "description": "A Vite plugin for MDX",
   "repository": "https://github.com/liuyunhe/vite-plugin-mdx",
-  "files": [
-    "dist"
-  ],
-  "main": "dist/index.js",
-  "module": "dist/index.d.ts",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "author": "Shepard Liu <shepardliu@foxmail.com> (https://github.com/shepardliu)",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": "Shepard Liu <liuyunhe666@aliyun.com> (https://github.com/shepardliu)",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "peerDependencies": {
+    "vite": ">=2"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc --project tsconfig.app.json",
+    "unbuild": "unbuild",
     "publishOnly": "npm publish --access public"
   },
   "dependencies": {
@@ -32,6 +43,7 @@
     "@vitejs/plugin-vue-jsx": "^4.1.0",
     "npm-run-all2": "^7.0.1",
     "typescript": "~5.6.2",
+    "unbuild": "^2.0.0",
     "vite": "^5.4.10",
     "vite-plugin-dts": "^4.3.0",
     "vue-tsc": "^2.1.8"
