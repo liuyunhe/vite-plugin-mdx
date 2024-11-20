@@ -11,9 +11,11 @@ import { createFilter, FilterPattern } from 'vite'
 const vue3DefaultRenderer = `
 import {mdx} from 'vite-mdx/vue3'
 `
-
-// 定义jsx pragma代码片段
-// 使用 mdx 函数作为 JSX pragma
+/**
+ * 定义jsx pragma代码片段
+ * 
+ * 使用 mdx 函数作为 JSX pragma
+*/ 
 const vue3DefaultPargma = `
 /** @jsx mdx*/
 `
