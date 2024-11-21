@@ -4,9 +4,16 @@
     "target": "ES6",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "strict": true,
+    "strict": false,
     "outDir": "./dist",
-    "declaration": true
+    "declaration": true,
+    "jsx": "preserve",
+    "paths": {
+      "@/*": ["src/*"],
+      "vite-mdx":["src/index.ts"],
+      "vite-mdx/vue3":["src/vue3/index.ts"],
+    }
   },
-  "include": ["src"]
+  "include": ["src","demo/**/*.tsx","demo/**/*.ts","demo/App.tsx"],
+  
 }
