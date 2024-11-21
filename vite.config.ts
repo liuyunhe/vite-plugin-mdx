@@ -6,7 +6,9 @@ import viteMdx from './src'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    viteMdx(),
+    viteMdx({
+      mode:'development'
+    }),
     vue(),
     vueJsx({
       include: /\.(jsx|tsx|mdx)$/

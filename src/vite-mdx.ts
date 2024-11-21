@@ -2,20 +2,26 @@ import { Plugin } from 'vite'
 import { createCompiler } from '@mdx-js/mdx'
 import { createFilter, FilterPattern } from 'vite'
 
-/**定义渲染器代码片段 
- * 
+/**定义渲染器代码片段
+ *
  * 开发时使用本地`vite-mdx/vue3`
- * 
- * 发布时使用`@shepardliu/vite-plugin-mdx`
-*/
-const vue3DefaultRenderer = `
+ *
+ */
+const vue3DevRenderer = `
 import {mdx} from 'vite-mdx/vue3'
+`
+/**定义渲染器代码片段
+ *
+ * 发布时使用`@shepardliu/vite-plugin-mdx`
+ */
+const vue3DefaultRenderer = `
+import {mdx} from '@shepardliu/vite-plugin-mdx'
 `
 /**
  * 定义jsx pragma代码片段
- * 
+ *
  * 使用 mdx 函数作为 JSX pragma
-*/ 
+ */
 const vue3DefaultPargma = `
 /** @jsx mdx*/
 `
@@ -42,6 +48,7 @@ export enum Framework {
  * @property {FilterPattern} exclude - 文件路径排除模式
  */
 export interface Options {
+  mode?: 'development' | 'production'
   include?: FilterPattern
   exclude?: FilterPattern
   framework?: Framework
@@ -53,11 +60,11 @@ const frameworkRendererPargmaMap = {
   vue3: {
     renderer: vue3DefaultRenderer,
     pargma: vue3DefaultPargma
-  } as const,
+  },
   react: {
     renderer: reactDefaultRenderer,
     pargma: reactDefaultPargma
-  } as const
+  }
 }
 
 /**
@@ -91,6 +98,7 @@ export default (options: Options = {}): Plugin => {
     transform(code, id) {
       // 获取选项中的包含和排除模式，默认为匹配 .mdx 文件
       const {
+        mode = 'production',
         include = /\.mdx/,
         exclude,
         renderer: optionsRenderer,
@@ -99,8 +107,12 @@ export default (options: Options = {}): Plugin => {
       // 根据包含和排除模式创建过滤器函数
       const filter = createFilter(include, exclude)
 
-      const { renderer: defaultRenderer, pargma: defaultPargma } =
+      let { renderer: defaultRenderer, pargma: defaultPargma } =
         frameworkRendererPargmaMap[framework]
+
+      if (framework === Framework.Vue3 && mode === 'development') {
+        defaultRenderer = vue3DevRenderer
+      }
 
       const renderer = optionsRenderer || defaultRenderer
       const pargma = optionsPargma || defaultPargma
