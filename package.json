@@ -31,8 +31,11 @@
     "publishOnly": "npm publish --access public"
   },
   "dependencies": {
-    "@mdx-js/mdx": "1.5.9",
+    "@mdx-js/mdx": "1.6.20",
     "@mdx-js/react": "^3.1.0",
+    "@mdx-js/rollup": "^3.1.0",
+    "@mdx-js/vue": "^3.1.0",
+    "vfile": "^6.0.3",
     "vue": "^3.5.12"
   },
   "devDependencies": {
