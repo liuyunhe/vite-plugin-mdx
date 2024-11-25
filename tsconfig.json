@@ -8,6 +8,7 @@
     "outDir": "./dist",
     "declaration": true,
     "jsx": "preserve",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "vite-mdx":["src/index.ts"],
