@@ -1,20 +1,11 @@
+// 项目中的普通代码是运行在浏览器环境中的，因此 TypeScript 需要为这些代码提供 DOM 
+// 等浏览器接口的类型支持。而 vite.config.ts 是运行在 Node 环境中的，它不应访问浏览器接口，
+// 而相应地它需要各种 Node 接口的类型支持，因此两份代码理应使用不同的配置文件。
+
 {
-  "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ES6",
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "strict": false,
-    "outDir": "./dist",
-    "declaration": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "vite-mdx":["src/index.ts"],
-      "vite-mdx/vue3":["src/vue3/index.ts"],
-    }
-  },
-  "include": ["src","demo/**/*.tsx","demo/**/*.ts","demo/App.tsx"],
-  
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }

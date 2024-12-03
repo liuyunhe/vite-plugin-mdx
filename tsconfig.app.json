@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES6",
     "module": "CommonJS",
-    "useDefineForClassFields": true,
-    "moduleResolution": "node",
-    "strict": false,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
+    "target": "ES6",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "lib": ["esnext", "dom"],
-    "outDir": "dist",
+    "strict": false,
+    "outDir": "./dist",
     "declaration": true,
-    "declarationDir": "dist"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "vite-mdx": ["src/index.ts"],
+      "vite-mdx/vue3": ["src/vue3/index.ts"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts"]
+  "include": ["src", "demo/**/*.tsx", "demo/**/*.ts", "demo/App.tsx"]
 }
